@@ -25,4 +25,12 @@ if(DOXYGEN_FOUND)
 endif(DOXYGEN_FOUND)
 
 # Tests
-add_subdirectory(tests)
+find_package(CMOCKA)
+if(CMOCKA_FOUND)
+	MESSAGE(STATUS "CMocka found, tests are enabled.")
+	enable_testing()
+	add_subdirectory(tests)
+else(CMOCKA_FOUND)
+	MESSAGE(WARNING "CMocka not found, tests are disabled.")
+	SET(ENABLE_TESTS false)
+endif(CMOCKA_FOUND)

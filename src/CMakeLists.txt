@@ -23,11 +23,13 @@ set(RCS_SOURCES
 add_library(COMMON OBJECT ${COMMON_SOURCES})
 set_property(TARGET COMMON PROPERTY COMPILE_FLAGS "-fPIC")
 
-add_library(RCS OBJECT ${RCS_SOURCES})
-set_property(TARGET RCS PROPERTY COMPILE_FLAGS "-fPIC")
+add_library(RCS_S OBJECT ${RCS_SOURCES})
+set_property(TARGET RCS_S PROPERTY COMPILE_FLAGS "-fPIC")
 
-# sysrepo daemon
+add_library(rcs SHARED $<TARGET_OBJECTS:COMMON> $<TARGET_OBJECTS:RCS_S>)
+
+# restconf server daemon
 add_executable(rcsd ${EXEC_DIR}/rc_server.c)
-
+target_link_libraries(rcsd rcs)
 
 install(TARGETS rcsd DESTINATION ${CMAKE_INSTALL_BINDIR})
