@@ -5,10 +5,13 @@
 #include <stdio.h>
 
 #include "header_handler.h"
+#include "rcs.h"
 
 void header_parser_positive_test (void ** state) {
-	char *header = "hello world from test";
-	int ret_val = parse_header(header);
+	request_t req;
+	char header[256] = "GET /root/my HTTP/1.1\nAccept: text/json\nContent-Length: 245\nSpecial-head: special-dat\n\n";
+	int ret_val = parse_header(header, &req);
+	printf("url is %s\n",req.url);
 	assert_false(ret_val);
 }
 

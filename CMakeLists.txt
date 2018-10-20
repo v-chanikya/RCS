@@ -34,3 +34,9 @@ else(CMOCKA_FOUND)
 	MESSAGE(WARNING "CMocka not found, tests are disabled.")
 	SET(ENABLE_TESTS false)
 endif(CMOCKA_FOUND)
+
+# Examples
+add_subdirectory(examples)
+
+# Debug flag
+set(CMAKE_BUILD_TYPE Debug)

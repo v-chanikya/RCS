@@ -1,6 +1,7 @@
 set(TEST_REPOSITORY_LOC "${CMAKE_BINARY_DIR}/repository")
 
 include_directories(
+	"${PROJECT_SOURCE_DIR}/inc"
 	"${PROJECT_SOURCE_DIR}/src"
 	"${PROJECT_SOURCE_DIR}/src/common"
 )
