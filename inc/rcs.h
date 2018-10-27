@@ -79,7 +79,7 @@ typedef enum header_type_e {
 typedef struct header_s {
 	header_type_t 	header_type;
 	char 			*header_data;
-	void 			*header_structur;
+	void 			*header_struct;
 }header_t;
 
 /**
@@ -92,6 +92,44 @@ typedef struct request_s {
 	char 				*url;
 	header_t 			**headers;
 	int 				no_headers;
+	char 				*body;
 }request_t;
+
+/**
+ * @brief free the restconf transaction structure
+ */
+int rct_free();
+
+/**
+ * @brief free the restconf request structure
+ */
+int rct_req_free(request_t *req);
+
+/**
+ * @brief free the restconf response structure
+ */
+int rct_res_free();
+
+/**
+ * @brief prints the restconf transaction structure
+ */
+int rct_print();
+
+/**
+ * @brief prints the restconf request structure
+ */
+void rct_req_print(request_t *req);
+
+/**
+ * @brief prints the restconf response structure
+ */
+void rct_res_print();
+
+/**
+ * @brief Generic enum case to return string of the case.
+ */
+#define E_CASE(x) \
+    case x: \
+    return  #x ;
 
 #endif /* RCS_H */

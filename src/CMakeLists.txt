@@ -12,6 +12,7 @@ include_directories(
 # common sources
 set(COMMON_SOURCES
 	${COMMON_DIR}/rcs_common.c
+	${COMMON_DIR}/rc_trans_helper.c
 	${UTILS_DIR}/rcs_utils.c
 )
 
