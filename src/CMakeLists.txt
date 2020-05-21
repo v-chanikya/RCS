@@ -19,6 +19,7 @@ set(COMMON_SOURCES
 # restconf server sources
 set(RCS_SOURCES
 	header_handler.c
+	response_engine.c
 )
 
 add_library(COMMON OBJECT ${COMMON_SOURCES})

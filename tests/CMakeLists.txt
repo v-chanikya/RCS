@@ -40,3 +40,4 @@ macro(ADD_UNIT_TEST TEST_NAME)
 endmacro(ADD_UNIT_TEST)
 
 ADD_UNIT_TEST(header_handler_test)
+ADD_UNIT_TEST(response_engine_test)
